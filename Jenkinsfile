@@ -98,13 +98,6 @@ pipeline {
             }
         }
 
-        stage('Create Namespace') {
-            steps {
-                script {
-                    sh 'kubectl get namespace prod || kubectl create namespace prod'
-                }
-            }
-        }
         
         stage('Kubernetes Deploy') {
             agent {label 'KOPS'}
